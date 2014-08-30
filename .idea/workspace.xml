@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a4f59ad-ec61-42da-862b-12125fac292e" name="Default" comment="" />
+    <list default="true" id="8a4f59ad-ec61-42da-862b-12125fac292e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UDPComm/UdpMessageReceiver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UDPComm/UdpMessageSender.py" />
+      <change type="DELETED" beforePath="C:\Users\Kevin\PycharmProjects\pygame-gamemvp\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="pygame-gamemvp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
