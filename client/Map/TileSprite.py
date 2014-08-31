@@ -4,25 +4,10 @@ import sys
 import pygame
 import tmxlib
 from PIL import Image
-"""
-filename = 'map-blocker-sides.tmx'
-map = tmxlib.Map.open(filename)
 
-print map
-allTiles = map.layers[0].all_tiles()
-print map.layers[0].type
-while True:
-    try:
-        print allTiles.next()
-    except:
-        break
-
-print map.layers[0].to_dict()
-print vars(map)
-"""
 
 class TileSprite(pygame.sprite.Sprite):
-    def __init__(self, image, location, tilesize, spritesheet_num):
+    def __init__(self, image, location, tilesize):
         super(TileSprite, self).__init__()
         location = (location[0] * tilesize, location[1] * tilesize)
         left = location[0]
@@ -30,17 +15,18 @@ class TileSprite(pygame.sprite.Sprite):
         right = location[0] + 32
         bottom = location[1] + 32
 
-        im = Image.open(image).crop((left, top, right, bottom))#.tostring("raw", "RGB")
+        im = Image.open(resources_folder + image).crop((left, top, right, bottom))
         self.image = pygame.image.fromstring(im.tostring("raw", "RGB"), im.size, "RGB")
         self.rect = pygame.rect.Rect(location, self.image.get_size())
-        print self.rect
 
 if __name__ == '__main__':
     pygame.init()
     size = width, height = 640, 480
     screen = pygame.display.set_mode(size)
+    clock = pygame.time.Clock()
 
-    map = tmxlib.Map.open('map-blocker-sides.tmx')
+    resources_folder = 'resources//'
+    map = tmxlib.Map.open(resources_folder + 'map-blocker-sides.tmx')
     tiles = list(map.layers[0].all_tiles())[:400]
     print vars(tiles[0])
     print tiles[0], tiles[-1]
@@ -65,6 +51,7 @@ if __name__ == '__main__':
             #sprite_tile_group.add(TileSprite())
     print sprite_tile_group
     while 1:
+        dt = clock.tick(30)
         sprite_tile_group.draw(screen)
         pygame.display.flip()
 
